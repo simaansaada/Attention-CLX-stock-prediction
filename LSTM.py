@@ -6,7 +6,7 @@ from sklearn import metrics
 from sklearn.preprocessing import MinMaxScaler
 from keras.models import Sequential
 from keras.layers import Dense, LSTM, Bidirectional
-from keras.optimizers import Adam
+from tensorflow.keras.optimizers import Adam
 # from tensorflow.keras.optimizers import Adam
 from numpy.random import seed
 from utils import *
