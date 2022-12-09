@@ -4,6 +4,7 @@ from keras.models import Model
 from keras.layers import merge
 from keras.layers.core import *
 from keras.layers.recurrent import LSTM
+import keras.backend as K
 from keras.models import *
 from utils import *
 import numpy as np
@@ -26,7 +27,7 @@ def attention_3d_block_merge(inputs,single_attention_vector = False):
 
 def attention_3d_block(inputs, single_attention_vector=False):
     # inputs.shape = (batch_size, time_steps, input_dim)
-    time_steps = np.int_shape(inputs)[1]
+    time_steps = K.int_shape(inputs)[1]
     input_dim = K.int_shape(inputs)[2]
     a = Permute((2, 1))(inputs)
     a = Dense(time_steps, activation='softmax')(a)
