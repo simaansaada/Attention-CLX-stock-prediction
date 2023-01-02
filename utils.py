@@ -169,5 +169,5 @@ def prepare_data(series, n_test, n_in, n_out):
     values = series.values
     supervised_data = series_to_supervised(values, n_in, n_out)
     print('supervised_data', supervised_data)
-    train, test = supervised_data.loc[:3500, :], supervised_data.loc[3501:, :]
+    train, test = supervised_data.loc[:3500, :], supervised_data.loc[3500:, :]
     return train, test
