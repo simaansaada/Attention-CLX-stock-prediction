@@ -74,7 +74,7 @@ def PredictWithData(data,data_yuan,name,modelname,INPUT_DIMS = 13,TIME_STEPS = 2
     model.load_weights(modelname)
     model.summary()
     y_hat =  model.predict(testX)
-    testY, y_hat = xgb_scheduler(data_yuan, y_hat)
+    testY, y_hat = xgb_scheduler(data_yuan, y_hat) # xgboost.
     return y_hat, testY
 
 def lstm(model_type,X_train,yuan_X_train):

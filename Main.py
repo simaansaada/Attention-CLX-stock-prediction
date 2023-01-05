@@ -53,7 +53,7 @@ class Config:
 config = Config()
 name = config.dimname
 # normalize = np.load("normalize.npy")
-y_hat, y_test = PredictWithData(data2, data_yuan, name, 'stock_model.h5',7)
+y_hat, y_test = PredictWithData(data2, data_yuan, name, 'stock_model.h5',7) # and here comes the work of last step. xgboost.
 y_hat = np.array(y_hat, dtype='float64')
 y_test = np.array(y_test, dtype='float64')
 evaluation_metric(y_test,y_hat)
