@@ -62,7 +62,7 @@ acf_pacf_plot(training_set['close'],acf_lags=160)
 
 price = list(temp2)
 data2 = {
-    'trade_date': training_set['diff_1'].index[1:], 
+    'trade_date': training_set['diff_1'].index[1:], # we have changed the indedx in the first of the script to be the trade date
     'close': price
 }
 
@@ -124,7 +124,7 @@ adf_test(temp)
 adf_test(temp1)
 
 predictions_ARIMA_diff = pd.Series(model.fittedvalues, copy=True)
-predictions_ARIMA_diff = predictions_ARIMA_diff[3479:]
+# predictions_ARIMA_diff = predictions_ARIMA_diff[3479:]
 print('#', predictions_ARIMA_diff)
 plt.figure(figsize=(10, 6))
 plt.plot(training_data_diff, label="diff_1")
