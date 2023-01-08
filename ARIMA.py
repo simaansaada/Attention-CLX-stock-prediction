@@ -127,8 +127,16 @@ predictions_ARIMA_diff = pd.Series(model.fittedvalues, copy=True)
 # predictions_ARIMA_diff = predictions_ARIMA_diff[3479:]
 print('#', predictions_ARIMA_diff)
 plt.figure(figsize=(10, 6))
-plt.plot(training_data_diff, label="diff_1")
-plt.plot(predictions_ARIMA_diff, label="prediction_diff_1")
+
+data3 = {
+    'trade_date': training_set['diff_1'].index[1:], # we have changed the indedx in the first of the script to be the trade date
+    'close': predictions_ARIMA_diff[1:]
+}
+data3 = pd.DataFrame(data3)
+data3 = data3.set_index(['trade_date'], drop=True)
+# plt.plot(training_data_diff, label="training_data_diff")
+plt.plot(training_data_diff, label="training_data_diff")
+plt.plot(np.diff(data3, n=1), label="predictions_ARIMA_diff")
 plt.xlabel('time', fontsize=12, verticalalignment='top')
 plt.ylabel('diff_1', fontsize=14, horizontalalignment='center')
 plt.title('DiffFit')
