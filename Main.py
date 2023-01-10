@@ -36,19 +36,19 @@ print(train_X.shape, train_Y.shape)
 
 
 # ############################################################### pre-training ##########################################################
-# m = attention_model(INPUT_DIMS=7)
-# m.summary() 
-# adam = Adam(learning_rate=0.01)
-# m.compile(optimizer=adam, loss='mse') 
-# history = m.fit([train_X], train_Y, epochs=50, batch_size=32, validation_split=0.1)
-# m.save("./stock_model.h5")
-# np.save("stock_normalize.npy", normalize)
+m = attention_model(INPUT_DIMS=7)
+m.summary() 
+adam = Adam(learning_rate=0.01)
+m.compile(optimizer=adam, loss='mse') 
+history = m.fit([train_X], train_Y, epochs=50, batch_size=32, validation_split=0.1)
+m.save("./stock_model.h5")
+np.save("stock_normalize.npy", normalize)
 
-# plt.plot(history.history['loss'], label='Training Loss')
-# plt.plot(history.history['val_loss'], label='Validation Loss')
-# plt.title('Training and Validation Loss')
-# plt.legend()
-# plt.show()
+plt.plot(history.history['loss'], label='Training Loss')
+plt.plot(history.history['val_loss'], label='Validation Loss')
+plt.title('Training and Validation Loss')
+plt.legend()
+plt.show()
 
 # # normalize = np.load("normalize.npy")
 # # loadmodelname = "model.h5"
