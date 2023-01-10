@@ -27,7 +27,7 @@ TIME_STEPS = 20
 
 data, normalize = NormalizeMult(data)
 print('#', normalize)
-pollution_data = data[:, 3].reshape(len(data), 1)
+pollution_data = data[:, 3].reshape(len(data), 1) # choose the 3rd column. the close date from the 
 
 train_X, _ = create_dataset(data, TIME_STEPS)
 _, train_Y = create_dataset(pollution_data, TIME_STEPS)
