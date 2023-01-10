@@ -142,7 +142,7 @@ def walk_forward_validation(train, test):
     history = [x for x in train]
     # print('history', history)
     for i in range(len(test)):
-        testX, testy = test.iloc[i, :-1], test.iloc[i, -1]
+        testX, testy = test.iloc[i, :-1], test.iloc[i, -1] # iloc helps to selected a specific row or column
         # print('i', i, testX, testy)
         yhat = xgboost_forecast(history, testX)
         predictions.append(yhat)
